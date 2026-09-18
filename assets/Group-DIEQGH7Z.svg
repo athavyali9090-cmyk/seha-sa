@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" width="260" height="70">
+  <g transform="translate(10, 5)">
+    <!-- Palm & Crossed Swords Emblem -->
+    <path d="M30 6 C30 18 20 24 16 28 C22 28 28 26 30 20 C32 26 38 28 44 28 C40 24 30 18 30 6 Z" fill="#006c35"/>
+    <path d="M30 16 V36" stroke="#006c35" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M14 42 L46 42 M18 46 L42 46" stroke="#c89d42" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M18 48 L42 34 M42 48 L18 34" stroke="#006c35" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="68" y="32" font-family="'Cairo', sans-serif" font-size="20" font-weight="900" fill="#006c35">وزارة الصحة</text>
+  <text x="68" y="48" font-family="'Cairo', sans-serif" font-size="10" font-weight="700" fill="#527d66">Ministry of Health</text>
+</svg>

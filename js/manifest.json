@@ -1,0 +1,8 @@
+{
+  "name": "صحة - منصة الخدمات الصحية",
+  "short_name": "صحة",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}
