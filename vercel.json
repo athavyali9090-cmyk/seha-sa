@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/inquiry", "destination": "/api/inquiry.js" },
+    { "source": "/api/sick-leaves/inquiry", "destination": "/api/inquiry.js" },
+    { "source": "/api/sick-leaves/:id", "destination": "/api/sick-leaves.js" },
+    { "source": "/api/sick-leaves", "destination": "/api/sick-leaves.js" },
+    { "source": "/api/sick-leaves/sync", "destination": "/api/sick-leaves.js" },
+    { "source": "/slenquiry.app", "destination": "/index.html" },
+    { "source": "/((?!api/|.*\\..*).*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}

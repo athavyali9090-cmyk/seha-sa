@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" width="240" height="70">
+  <g transform="translate(10, 8)">
+    <circle cx="27" cy="27" r="25" fill="none" stroke="#ffffff" stroke-width="3.5"/>
+    <path d="M27 12 C18 12 12 18 12 26 C12 36 27 44 27 44 C27 44 42 36 42 26 C42 18 36 12 27 12 Z" fill="#ffffff" opacity="0.2"/>
+    <path d="M27 15 C20 15 15 20 15 26 C15 34 27 41 27 41 C27 41 39 34 39 26 C39 20 34 15 27 15 Z" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M27 21 V31 M22 26 H32" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="75" y="38" font-family="'Cairo', sans-serif" font-size="28" font-weight="900" fill="#ffffff" direction="rtl">صِحّـــة</text>
+  <text x="76" y="52" font-family="'Cairo', sans-serif" font-size="11" font-weight="700" letter-spacing="3" fill="#e0f2fe">SEHA</text>
+  <text x="122" y="52" font-family="'Cairo', sans-serif" font-size="8" font-weight="600" fill="#cbd5e1">PLATFORM</text>
+</svg>

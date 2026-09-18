@@ -1,0 +1,8 @@
+{
+  "name": "صحة - منصة الخدمات الصحية",
+  "description": "منصة إلكترونية تخدم القطاع الصحي في المملكة من خلال تقديم خدمات إلكترونية معتمدة من قبل وزارة الصحة",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

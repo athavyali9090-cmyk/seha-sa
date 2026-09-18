@@ -1,0 +1,39 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/sick-leaves/inquiry*"
+  to = "/.netlify/functions/inquiry"
+  status = 200
+
+[[redirects]]
+  from = "/api/inquiry*"
+  to = "/.netlify/functions/inquiry"
+  status = 200
+
+[[redirects]]
+  from = "/api/sick-leaves/sync*"
+  to = "/.netlify/functions/sick-leaves"
+  status = 200
+
+[[redirects]]
+  from = "/api/sick-leaves/*"
+  to = "/.netlify/functions/sick-leaves/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/sick-leaves*"
+  to = "/.netlify/functions/sick-leaves"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"

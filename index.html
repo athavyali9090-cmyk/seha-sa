@@ -1,0 +1,681 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="هي منصة إلكترونية تخدم القطاع الصحي في المملكة من خلال تقديم خدمات إلكترونية معتمدة من قبل وزارة الصحة.">
+    <base href="/">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="manifest" href="js/manifest.json">
+    <title>صحة - منصة الخدمات الصحية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+
+    <style>
+      html, body {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        margin: 0;
+        padding: 0;
+      }
+
+      body, html, *, input, button, select, textarea, span, div, p, h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cairo', sans-serif !important;
+      }
+
+      /* Fix accessibility button to bottom-left position as indicated */
+      #userwayAccessibilityIcon,
+      .uai,
+      .userway_buttons_wrapper,
+      [id*="userwayAccessibilityIcon"],
+      [id*="userwayLstIcon"] {
+        left: 10px !important;
+        right: auto !important;
+        bottom: 12px !important;
+        top: auto !important;
+        position: fixed !important;
+        z-index: 2147483640 !important;
+      }
+
+      /* Ensure the Accessibility Menu opens firmly on the RIGHT side by default */
+      .uwif,
+      iframe[title*="UserWay"],
+      iframe[name="userway"],
+      .userway_p3.uwif,
+      .userway_p1.uwif {
+        right: 0 !important;
+        left: auto !important;
+      }
+
+      @media (max-width: 1024px) {
+        .uwif,
+        iframe[title*="UserWay"],
+        iframe[name="userway"] {
+          right: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+        }
+      }
+
+      /* Create account page logo formatting to prevent overlapping */
+      ._sehaLogo_135kb_29 {
+        position: relative !important;
+        max-width: 140px !important;
+        height: auto !important;
+        margin: 15px auto 25px auto !important;
+        cursor: pointer !important;
+        display: block !important;
+        z-index: 10 !important;
+      }
+
+      @media (min-width: 769px) {
+        ._sehaLogo_135kb_29 {
+          position: absolute !important;
+          top: 25px !important;
+          right: 50px !important;
+          margin: 0 !important;
+          max-width: 140px !important;
+        }
+      }
+
+      ._pageContainer_135kb_3 {
+        padding-bottom: 120px !important;
+      }
+
+      /* Registration cards styling - prevent icon overlapping text */
+      ._optionCard_6r85b_36 {
+        position: relative !important;
+        padding-top: 54px !important;
+        padding-bottom: 28px !important;
+      }
+
+      ._cardHeader_6r85b_50 {
+        position: absolute !important;
+        top: -36px !important;
+        left: 50% !important;
+        transform: translate(-50%) !important;
+        z-index: 10 !important;
+      }
+
+      ._iconContainer_6r85b_58 {
+        width: 72px !important;
+        height: 72px !important;
+        border-radius: 8px !important;
+        background: transparent !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0px 4px 10px 0px rgba(83, 97, 112, .14) !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      ._iconImage_6r85b_179,
+      ._businessIcon_6r85b_185 {
+        width: 72px !important;
+        height: 72px !important;
+        max-width: 72px !important;
+        max-height: 72px !important;
+        border-radius: 8px !important;
+        display: block !important;
+        object-fit: contain !important;
+      }
+
+      ._cardTitle_6r85b_78 {
+        display: block !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #306db5 !important;
+        margin: 0 0 6px 0 !important;
+        text-align: center !important;
+      }
+
+      ._cardContent_6r85b_69 {
+        margin-top: 14px !important;
+        gap: 12px !important;
+        width: 100% !important;
+      }
+
+      @media (max-width: 768px) {
+        ._optionCard_6r85b_36 {
+          padding-top: 54px !important;
+          padding-bottom: 24px !important;
+          min-height: auto !important;
+        }
+
+        ._cardContent_6r85b_69 {
+          margin-top: 12px !important;
+          gap: 10px !important;
+        }
+      }
+
+      /* Seha Plus (صحة بلس) Mobile and Desktop styling */
+      .premium-medical {
+        min-height: 100vh;
+        background-color: #fff;
+      }
+
+      .premium-medical.premium-medical--public {
+        padding-bottom: 80px !important;
+      }
+
+      .premium-medical .features-section {
+        padding: 48px 24px !important;
+      }
+
+      .premium-medical .features-section:nth-child(odd) {
+        background-color: #f8f9fb !important;
+      }
+
+      .premium-medical .features-section .feature-card {
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+
+      .premium-medical .features-section .feature-card .feature-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+      }
+
+      .premium-medical .features-section .feature-card .feature-content .feature-title {
+        font-family: 'Cairo', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 28px !important;
+        line-height: 1.35 !important;
+        color: #306db5 !important;
+        margin-bottom: 8px !important;
+      }
+
+      .premium-medical .features-section .feature-card .feature-content .feature-description {
+        font-family: 'Cairo', sans-serif !important;
+        font-weight: 500 !important;
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        color: #4b5563 !important;
+      }
+
+      .premium-medical .features-section .feature-card .feature-image {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .premium-medical .features-section .feature-card .feature-image .dashboard-gif,
+      .premium-medical .features-section .feature-card .feature-image img {
+        max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        display: block !important;
+      }
+
+      @media (max-width: 768px) {
+        .premium-medical .hero-section {
+          padding: 24px 16px 32px !important;
+        }
+
+        .premium-medical .features-section {
+          padding: 36px 16px !important;
+        }
+
+        .premium-medical .features-section .feature-card .ant-row {
+          display: flex !important;
+          flex-direction: column !important;
+          row-gap: 24px !important;
+        }
+
+        .premium-medical .features-section .feature-card .ant-col {
+          flex: 0 0 100% !important;
+          max-width: 100% !important;
+          width: 100% !important;
+        }
+
+        /* Ensure title and description are on top, GIF is below */
+        .premium-medical .features-section .feature-card .feature-content {
+          order: 1 !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          padding: 0 8px !important;
+          text-align: center !important;
+          align-items: center !important;
+          gap: 12px !important;
+        }
+
+        .premium-medical .features-section .feature-card .feature-content .feature-title {
+          font-size: 22px !important;
+          line-height: 1.35 !important;
+          text-align: center !important;
+          margin-bottom: 6px !important;
+        }
+
+        .premium-medical .features-section .feature-card .feature-content .feature-description {
+          font-size: 14px !important;
+          line-height: 1.6 !important;
+          text-align: center !important;
+        }
+
+        .premium-medical .features-section .feature-card .feature-image {
+          order: 2 !important;
+          width: 100% !important;
+          display: flex !important;
+          justify-content: center !important;
+          padding: 0 8px !important;
+        }
+
+        .premium-medical .features-section .feature-card .feature-image .dashboard-gif,
+        .premium-medical .features-section .feature-card .feature-image img {
+          width: 100% !important;
+          max-width: 320px !important;
+          height: auto !important;
+          margin: 0 auto !important;
+        }
+
+        /* Comparison table on mobile */
+        .premium-medical .feature-comparison {
+          padding: 40px 16px 40px !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-header {
+          text-align: center !important;
+          margin-bottom: 24px !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-header h2 {
+          font-size: 22px !important;
+          font-weight: 700 !important;
+          color: #306db5 !important;
+          margin-bottom: 6px !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-header p {
+          font-size: 14px !important;
+          color: #6b7280 !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-table {
+          overflow-x: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+          border: 1px solid #e5e7eb !important;
+          border-radius: 12px !important;
+          background: #fff !important;
+          margin: 0 auto !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-table .table-header,
+        .premium-medical .feature-comparison .comparison-table .table-body .table-row {
+          display: grid !important;
+          grid-template-columns: minmax(140px, 1.8fr) repeat(var(--package-count, 3), minmax(110px, 1fr)) !important;
+          min-width: calc(140px + var(--package-count, 3) * 110px) !important;
+          gap: 0 !important;
+          margin: 0 !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-table .table-header {
+          position: sticky !important;
+          top: 0 !important;
+          z-index: 3 !important;
+          background-color: #f1f3f5 !important;
+          border-bottom: 1px solid #e5e7eb !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-table .table-header .header-cell.features-header,
+        .premium-medical .feature-comparison .comparison-table .table-body .table-row .feature-cell {
+          position: sticky !important;
+          right: 0 !important;
+          z-index: 2 !important;
+          background-color: #fff !important;
+          box-shadow: -2px 0 4px rgba(0, 0, 0, 0.05) !important;
+          text-align: right !important;
+          padding: 16px 14px !important;
+          font-size: 13px !important;
+          line-height: 1.4 !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-table .table-header .header-cell.features-header {
+          background-color: #f1f3f5 !important;
+          z-index: 4 !important;
+          font-size: 14px !important;
+          font-weight: 700 !important;
+          color: #306db5 !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-table .table-header .header-cell.package-header {
+          padding: 16px 10px !important;
+          font-size: 13px !important;
+          font-weight: 700 !important;
+          color: #306db5 !important;
+          text-align: center !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-table .table-body .table-row .package-cell {
+          padding: 16px 10px !important;
+          text-align: center !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-cta {
+          display: flex !important;
+          justify-content: center !important;
+          margin-top: 28px !important;
+          margin-bottom: 20px !important;
+          padding: 0 16px !important;
+        }
+
+        .premium-medical .feature-comparison .comparison-cta .comparison-subscribe-btn {
+          min-width: unset !important;
+          width: 100% !important;
+          max-width: 360px !important;
+          padding: 14px 24px !important;
+          font-size: 16px !important;
+          font-weight: 700 !important;
+          border-radius: 8px !important;
+          background: #306db5 !important;
+          color: #fff !important;
+          border: none !important;
+          cursor: pointer !important;
+          display: block !important;
+          margin: 0 auto !important;
+        }
+      }
+    </style>
+
+    <script>
+      (function() {
+        window._userway_config = {
+          account: "2w89zcJOTG",
+          position: 3,
+          size: "small"
+        };
+        try {
+          localStorage.setItem('userway-positionWidget', '3');
+          localStorage.setItem('userway-positionWidgetMobile', '3');
+        } catch(e) {}
+
+        function lockWidgetPosition() {
+          var els = document.querySelectorAll('#userwayAccessibilityIcon, .uai, .userway_buttons_wrapper, [id*="userwayAccessibilityIcon"], [id*="userwayLstIcon"]');
+          for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            if (el.style.left !== '10px' || el.style.right !== 'auto') {
+              el.style.setProperty('left', '10px', 'important');
+              el.style.setProperty('right', 'auto', 'important');
+              el.style.setProperty('bottom', '12px', 'important');
+              el.style.setProperty('position', 'fixed', 'important');
+            }
+          }
+        }
+        setInterval(lockWidgetPosition, 250);
+        document.addEventListener('DOMContentLoaded', lockWidgetPosition);
+
+        // WhatsApp link interceptor to ensure direct chat opening
+        document.addEventListener('click', function(e) {
+          var a = e.target.closest('a');
+          if (a && a.href && a.href.includes('wa.me')) {
+            a.href = 'https://wa.me/+966920002005';
+            return;
+          }
+          // If clicked the whatsapp icon next to the link
+          var detailParent = e.target && e.target.closest ? e.target.closest('.details, .detail') : null;
+          var detailText = detailParent ? (detailParent.innerText || detailParent.textContent || '') : '';
+          if (e.target && (e.target.alt === 'whatsapp' || (detailParent && detailText.includes('920002005') && (e.target.tagName === 'IMG' || e.target.tagName === 'svg' || e.target.tagName === 'path')))) {
+            if (detailParent && detailParent.querySelector('img[alt="whatsapp"], svg')) {
+              window.open('https://wa.me/+966920002005', '_blank');
+              e.preventDefault();
+            }
+          }
+        }, true);
+      })();
+    </script>
+
+    <!-- Resilient API Engine for External Hostings (Vercel, Netlify, cPanel, Static) -->
+    <script>
+      (function() {
+        const originalFetch = window.fetch;
+        const CLOUD_DB_URL = 'https://kvdb.io/TcTZV6yBkGnPQyKKNLL4yQ/seha_clean_leaves_v6';
+        const STORAGE_KEY = 'seha_clean_leaves_v6';
+
+        // Purge any old seeded / fake caches completely
+        [
+          'seha_manual_leaves_v5', 'seha_user_deleted_leaves_v5',
+          'seha_manual_leaves_v4', 'seha_manual_leaves_v3',
+          'seha_user_custom_leaves_v3', 'seha_permanent_sick_leaves_v2',
+          'seha_custom_sick_leaves', 'seha_permanent_leaves_db_v2',
+          'seha_deleted_leaves_ids_v2', 'seha_user_deleted_leaves_v3'
+        ].forEach(function(k) {
+          try { localStorage.removeItem(k); } catch(e) {}
+        });
+
+        // Local storage helpers
+        const getLocalLeaves = function() {
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            return raw ? JSON.parse(raw) : [];
+          } catch(e) { return []; }
+        };
+
+        const setLocalLeaves = function(leaves) {
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(leaves));
+          } catch(e) {}
+        };
+
+        // Cloud DB helpers
+        const fetchCloudLeaves = async function() {
+          try {
+            const resp = await originalFetch(CLOUD_DB_URL, { cache: 'no-cache' });
+            if (resp.ok) {
+              const data = await resp.json();
+              if (Array.isArray(data)) {
+                return data;
+              }
+            }
+          } catch (e) {
+            console.warn('Cloud DB fetch error:', e);
+          }
+          return null;
+        };
+
+        const pushCloudLeaves = async function(leaves) {
+          try {
+            await originalFetch(CLOUD_DB_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(leaves)
+            });
+          } catch (e) {
+            console.warn('Cloud DB push error:', e);
+          }
+        };
+
+        // Unified getter across devices
+        const getUnifiedLeaves = async function() {
+          const cloud = await fetchCloudLeaves();
+          if (cloud !== null && Array.isArray(cloud)) {
+            setLocalLeaves(cloud);
+            return cloud;
+          }
+          return getLocalLeaves();
+        };
+
+        window.fetch = async function(resource, init) {
+          const url = typeof resource === 'string' ? resource : (resource && resource.url ? resource.url : '');
+          
+          if (url && (url.includes('/api/inquiry') || url.includes('/api/sick-leaves') || url.includes('/inquiry.php') || url.includes('/slenquiry.php'))) {
+            try {
+              const res = await originalFetch.apply(this, arguments);
+              const ct = res.headers.get('content-type') || '';
+              if (res.ok && ct.includes('application/json')) {
+                return res;
+              }
+            } catch (err) {
+              // Server offline or network error, fallback to cloud & local storage
+            }
+
+            // Fallback handler for static/serverless hostings (Vercel, Netlify, GitHub Pages, Tiiny)
+            try {
+              const urlObj = new URL(url, window.location.origin);
+              const pathname = urlObj.pathname;
+              const searchParams = urlObj.searchParams;
+
+              // Inquiry endpoint
+              if (pathname.includes('/api/inquiry') || pathname.includes('/api/sick-leaves/inquiry') || pathname.includes('inquiry.php') || pathname.includes('slenquiry.php')) {
+                const patientId = String(searchParams.get('PatientId') || searchParams.get('id') || searchParams.get('IDNumber') || '').trim();
+                const serviceCode = String(searchParams.get('NormalizedServiceCode') || searchParams.get('code') || searchParams.get('LeaveId') || '').trim().toLowerCase();
+
+                if (!patientId || !serviceCode) {
+                  return new Response(JSON.stringify([]), {
+                    status: 200,
+                    headers: { 'Content-Type': 'application/json; charset=utf-8' }
+                  });
+                }
+
+                const leaves = await getUnifiedLeaves();
+                const matches = leaves.filter(function(l) {
+                  const lId = String(l.PatientId || l.id || '').trim();
+                  const lCode = String(l.NormalizedServiceCode || l.LeaveId || '').trim().toLowerCase();
+                  return lId === patientId && lCode === serviceCode;
+                });
+
+                return new Response(JSON.stringify(matches), {
+                  status: 200,
+                  headers: { 'Content-Type': 'application/json; charset=utf-8' }
+                });
+              }
+
+              // GET /api/sick-leaves
+              if (pathname.endsWith('/api/sick-leaves') && (!init || !init.method || init.method.toUpperCase() === 'GET')) {
+                const leaves = await getUnifiedLeaves();
+                return new Response(JSON.stringify({ success: true, count: leaves.length, data: leaves }), {
+                  status: 200,
+                  headers: { 'Content-Type': 'application/json; charset=utf-8' }
+                });
+              }
+
+              // POST /api/sick-leaves
+              if (pathname.endsWith('/api/sick-leaves') && init && init.method && init.method.toUpperCase() === 'POST') {
+                const body = typeof init.body === 'string' ? JSON.parse(init.body) : init.body;
+                const leaves = await getUnifiedLeaves();
+                const codeKey = String(body.NormalizedServiceCode || '').trim().toLowerCase();
+                const idx = leaves.findIndex(function(l) {
+                  return String(l.NormalizedServiceCode || '').trim().toLowerCase() === codeKey;
+                });
+                if (idx >= 0) {
+                  leaves[idx] = Object.assign({}, leaves[idx], body, { UpdatedAt: new Date().toISOString() });
+                } else {
+                  leaves.unshift(body);
+                }
+                setLocalLeaves(leaves);
+                pushCloudLeaves(leaves);
+                return new Response(JSON.stringify({ success: true, message: 'تم حفظ الإجازة بنجاح', data: body }), {
+                  status: 200,
+                  headers: { 'Content-Type': 'application/json; charset=utf-8' }
+                });
+              }
+
+              // PUT /api/sick-leaves/:id
+              if (pathname.includes('/api/sick-leaves/') && init && init.method && init.method.toUpperCase() === 'PUT') {
+                const body = typeof init.body === 'string' ? JSON.parse(init.body) : init.body;
+                const leaves = await getUnifiedLeaves();
+                const targetId = decodeURIComponent(pathname.split('/').pop()).trim().toLowerCase();
+                const idx = leaves.findIndex(function(l) {
+                  return String(l.id || '').trim().toLowerCase() === targetId ||
+                         String(l.NormalizedServiceCode || '').trim().toLowerCase() === targetId;
+                });
+                if (idx >= 0) {
+                  leaves[idx] = Object.assign({}, leaves[idx], body, { UpdatedAt: new Date().toISOString() });
+                  setLocalLeaves(leaves);
+                  pushCloudLeaves(leaves);
+                }
+                return new Response(JSON.stringify({ success: true, message: 'تم تحديث الإجازة بنجاح', data: body }), {
+                  status: 200,
+                  headers: { 'Content-Type': 'application/json; charset=utf-8' }
+                });
+              }
+
+              // DELETE /api/sick-leaves/:id
+              if (pathname.includes('/api/sick-leaves/') && init && init.method && init.method.toUpperCase() === 'DELETE') {
+                const leaves = await getUnifiedLeaves();
+                const targetId = decodeURIComponent(pathname.split('/').pop()).trim().toLowerCase();
+                const filtered = leaves.filter(function(l) {
+                  return String(l.id || '').trim().toLowerCase() !== targetId &&
+                         String(l.NormalizedServiceCode || '').trim().toLowerCase() !== targetId;
+                });
+                setLocalLeaves(filtered);
+                pushCloudLeaves(filtered);
+                return new Response(JSON.stringify({ success: true, message: 'تم حذف الإجازة بنجاح' }), {
+                  status: 200,
+                  headers: { 'Content-Type': 'application/json; charset=utf-8' }
+                });
+              }
+
+              // Sync endpoint
+              if (pathname.includes('/api/sick-leaves/sync')) {
+                const body = init && init.body ? (typeof init.body === 'string' ? JSON.parse(init.body) : init.body) : null;
+                if (body && Array.isArray(body.leaves)) {
+                  setLocalLeaves(body.leaves);
+                  pushCloudLeaves(body.leaves);
+                }
+                return new Response(JSON.stringify({ success: true, message: 'تمت المزامنة بنجاح' }), {
+                  status: 200,
+                  headers: { 'Content-Type': 'application/json; charset=utf-8' }
+                });
+              }
+            } catch (fallbackErr) {
+              console.warn('API fallback handler warning:', fallbackErr);
+            }
+          }
+
+          return originalFetch.apply(this, arguments);
+        };
+      })();
+    </script>
+
+    <link rel="modulepreload" crossorigin="" href="js/components-BJkXymKQ.js">
+    <link rel="modulepreload" crossorigin="" href="js/main-B_pRNDV5.js">
+    <link rel="stylesheet" crossorigin="" href="css/index-fbtZb1We.css">
+
+    <script type="module" src="js/index-mG2x8W2Z.js"></script>
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.getFmsUserInfo = window.getFmsUserInfo || function() { return null; };
+      window.checkSurveyEligibility = window.checkSurveyEligibility || function() { return false; };
+      window.addEventListener('error', function(e) {
+        console.warn('Page runtime issue logged:', e.message);
+      });
+    </script>
+    <script defer="" src="js/script.js"></script>
+    <script defer="" src="js/seha-dashboard-app.js"></script>
+  </head>
+  <body>
+    <noscript>يجب تفعيل JavaScript لتشغيل الموقع.</noscript>
+    <div id="root"></div>
+
+    <!-- Direct Project ZIP Download Floating Button -->
+    <a id="seha-direct-zip-download-btn" href="/seha-project-full.zip" download="seha-project-full.zip" style="position:fixed;bottom:20px;left:20px;z-index:999998;background:#059669;color:#ffffff;text-decoration:none;padding:10px 16px;border-radius:12px;font-family:sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(5,150,105,0.35);transition:all 0.2s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      <span>تحميل المشروع ZIP</span>
+    </a>
+
+    <script>
+      // Graceful fallback watchdog: Ensures the page never stays indefinitely blank
+      setTimeout(function() {
+        var root = document.getElementById('root');
+        if (root && (!root.children || root.children.length === 0 || root.innerHTML.trim() === '')) {
+          console.warn('Root element was empty, triggering route fallback...');
+          if (!window.location.hash || window.location.hash === '#/') {
+            window.location.hash = '#/inquiries/slenquiry';
+          }
+        }
+      }, 2500);
+    </script>
+
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async="" type="text/javascript"></script>
+  </body></html>
