@@ -356,14 +356,14 @@ const handlePhpInquiry = async (req, res) => {
       </div>
       <div class="item">
         <div class="item-label">المدة بالأيام</div>
-        <div class="item-value">${data.Duration || 1} يوم</div>
+        <div class="item-value">${data.Duration || 1} ��وم</div>
       </div>
       <div class="item">
         <div class="item-label">تاريخ إصدار التقرير</div>
         <div class="item-value">${data.SickLeaveDate || 'غير محدد'}</div>
       </div>
       <div class="item full-width">
-        <div class="item-label">المنشأة الطبية</div>
+        <div class="item-label">المنشأة الطب��ة</div>
         <div class="item-value">${data.Hospital || data.OrganizationName || 'مستشفى الملك فهد العام'}</div>
       </div>
       <div class="item">
@@ -524,20 +524,6 @@ app.all(['/account/loginv3', '/api/account/loginv3', '/Account/loginv3', '/api/u
   return res.json({ errorCode: 100, errorMessage: "بيانات الدخول غير صحيحة" });
 });
 
-
-// Direct download routes for project zip
-app.get('/download', (req, res) => {
-  res.sendFile(path.join(__dirname, 'download.html'));
-});
-
-app.get(['/download-zip', '/download-file', '/download/seha-website.zip', '/download/seha-project-full.zip', '/seha-project-full.zip'], (req, res) => {
-  const zipPath = path.join(__dirname, 'seha-project-full.zip');
-  if (fs.existsSync(zipPath)) {
-    res.download(zipPath, 'seha-project-full.zip');
-  } else {
-    res.status(404).send('ملف الـ ZIP غير متوفر حالياً');
-  }
-});
 
 // Serve static assets from current directory
 app.use(express.static(__dirname));
