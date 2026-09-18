@@ -648,10 +648,6 @@
             <p>إدارة وتحديث سجلات الإجازات المعتمدة في منصة صحة وقاعدة البيانات</p>
           </div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <a href="/seha-project-full.zip" download="seha-project-full.zip" style="background:#059669;color:#ffffff;text-decoration:none;padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 12px rgba(5,150,105,0.25);transition:all 0.2s;" onmouseover="this.style.background='#047857'" onmouseout="this.style.background='#059669'">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              <span>تحميل المشروع ZIP</span>
-            </a>
             <button id="btn-open-add-modal" class="seha-btn-add">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
               <span>+ إضافة إجازة جديدة</span>
