@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "dev": "node server.js",
-    "build": "mkdir -p dist && cp -r index.html css js images assets img api netlify data inquiry.php slenquiry.php vercel.json netlify.toml .htaccess *.zip dist/ 2>/dev/null || true",
     "start": "node server.js"
   },
   "dependencies": {
